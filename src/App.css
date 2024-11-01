@@ -1,0 +1,65 @@
+/* App.css */
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: white;
+}
+
+.App-header {
+  background-color: #282c34;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1300;
+}
+
+.App-main {
+  display: flex;
+  flex: 1;
+  margin-top: 64px; /* Account for header height */
+  padding: 16px;
+  background-color: white;
+  overflow-y: auto;
+  padding-left: 240px; /* Account for SideDrawer width */
+}
+
+.SideDrawer {
+  position: fixed;
+  top: 64px; /* Start below the header */
+  bottom: 0; /* Extend to bottom but stay under footer */
+  left: 0;
+  width: 240px;
+  background-color: #FFFFFF;
+  z-index: 1100; /* Lower than footer */
+  overflow-y: auto;
+}
+
+footer {
+  background-color: #e40909;
+  text-align: center;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1200; /* Higher than side drawer */
+  color: white;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
