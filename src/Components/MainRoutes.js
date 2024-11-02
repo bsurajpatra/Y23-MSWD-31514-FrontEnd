@@ -1,4 +1,3 @@
-// src/Components/MainRoutes.js
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Dashboard from './Dashboard'; 

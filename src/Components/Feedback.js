@@ -14,7 +14,7 @@ const Feedback = () => {
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'flex-start', // Align content from top
+    justifyContent: 'flex-start', 
     alignItems: 'center',
     padding: '20px',
     boxSizing: 'border-box',
@@ -26,7 +26,7 @@ const Feedback = () => {
     borderCollapse: 'collapse',
     backgroundColor: '#fff',
     boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-    marginTop: '20px' // Add some spacing
+    marginTop: '20px'
   };
 
   const headingStyle = {

@@ -46,7 +46,7 @@ const TimeTable = () => {
   const tdStyle = {
     padding: '15px',
     borderBottom: '1px solid #ddd',
-    textAlign: 'center' // Center the content within cells
+    textAlign: 'center' 
   };
 
   const trEvenStyle = {

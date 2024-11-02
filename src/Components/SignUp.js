@@ -47,7 +47,7 @@ const SignUp = () => {
       const data = await response.json();
 
       if (response.ok) {
-        navigate('/'); // Redirect to sign in page
+        navigate('/'); 
       } else {
         setError(data.message || 'Registration failed. Please try again.');
       }

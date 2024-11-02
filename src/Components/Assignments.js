@@ -22,8 +22,8 @@ const Assignments = () => {
   };
 
   const tableStyle = {
-    minWidth: '150%', // Set minimum width to 150%
-    maxWidth: '150%', // Cap the maximum width at 150%
+    minWidth: '150%', 
+    maxWidth: '150%', 
     borderCollapse: 'collapse',
     backgroundColor: '#fff',
     boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',

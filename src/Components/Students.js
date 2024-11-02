@@ -11,11 +11,10 @@ const Students = () => {
   const [year, setYear] = useState('');
   const [message, setMessage] = useState('');
 
-  // Fetch students from MongoDB when the component mounts
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const res = await axios.get('http://localhost:3001/api/students/allstudents'); // Updated port to 3001
+        const res = await axios.get('http://localhost:3001/api/students/allstudents');
         setStudents(res.data);
       } catch (error) {
         console.error('Error fetching students:', error);
@@ -34,9 +33,7 @@ const Students = () => {
       setMessage(res.data.message);
 
       if (res.status === 201) {
-        // Update the students list with the newly added student
         setStudents(prevStudents => [...prevStudents, res.data.data]);
-        // Clear the input fields
         setId('');
         setName('');
         setEmail('');

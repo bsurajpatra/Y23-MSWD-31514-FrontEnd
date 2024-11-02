@@ -1,4 +1,3 @@
-// client/src/Components/Dashboard.js
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -66,10 +65,8 @@ const Dashboard = () => {
         </div>
 
         <div style={styles.mainContent}>
-          {/* Add your dashboard content here */}
           <div style={styles.card}>
             <h3>Quick Stats</h3>
-            {/* Add statistics or important information */}
           </div>
         </div>
       </div>
