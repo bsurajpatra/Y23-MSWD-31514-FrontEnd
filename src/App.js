@@ -1,11 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import LoginRouting from './Components/LoginRouting'; 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginRouting from './Components/LoginRouting';
+import PageLayout from './Components/PageLayout';
 
 function App() {
   return (
     <Router>
-      <LoginRouting />
+      <Routes>
+        <Route path="/*" element={<LoginRouting />} />
+        <Route path="/app/*" element={<PageLayout />} />
+      </Routes>
     </Router>
   );
 }

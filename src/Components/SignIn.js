@@ -28,7 +28,8 @@ const SignIn = () => {
       if (response.ok) {
         localStorage.setItem('token', data.token);
         localStorage.setItem('userEmail', email);
-        navigate('/app'); // Redirect to PageLayout or Dashboard
+        navigate('/app'); // Updated redirect path
+      
       } else {
         setError(data.message || 'Login failed. Please check your credentials.');
       }

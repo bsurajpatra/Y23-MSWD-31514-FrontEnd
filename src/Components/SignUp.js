@@ -51,7 +51,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    
+
     if (!validateForm()) {
       return;
     }
@@ -79,7 +79,10 @@ const SignUp = () => {
         throw new Error(data.message || 'Registration failed');
       }
 
-      navigate('/signin', { state: { message: 'Registration successful! Please log in.' } });
+      // Redirect to PageLayout after successful registration
+      setTimeout(() => {
+        navigate('/app'); // Redirect to PageLayout
+      }, 1500);
     } catch (error) {
       console.error('Registration error:', error);
       setError(error.message || 'Unable to complete registration. Please try again later.');

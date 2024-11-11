@@ -7,18 +7,16 @@ import Courses from './Courses';
 import Feedback from './Feedback';
 import TimeTable from './TimeTable';
 import Assignments from './Assignments';
-
 export default function MainRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Dashboard />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/faculty" element={<Faculty />} />
-      <Route path="/students" element={<Students />} />
-      <Route path="/courses" element={<Courses />} />
-      <Route path="/feedback" element={<Feedback />} />
-      <Route path="/timetable" element={<TimeTable />} />
-      <Route path="/assignments" element={<Assignments />} />
+      <Route path="/app/dashboard" element={<Dashboard />} />
+      <Route path="/app/faculty" element={<Faculty />} />
+      <Route path="/app/students" element={<Students />} />
+      <Route path="/app/courses" element={<Courses />} />
+      <Route path="/app/feedback" element={<Feedback />} />
+      <Route path="/app/timetable" element={<TimeTable />} />
+      <Route path="/app/assignments" element={<Assignments />} />
     </Routes>
   );
 }

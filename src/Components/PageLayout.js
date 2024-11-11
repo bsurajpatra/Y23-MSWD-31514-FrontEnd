@@ -2,7 +2,7 @@ import React from 'react';
 import SideDrawer from './SideDrawer';
 import Header from './Header';
 import Footer from './Footer';
-import MainRoutes from './MainRoutes';
+import MainRoutes from './MainRoutes'; // Ensure this is imported
 
 const PageLayout = () => {
   return (
@@ -11,7 +11,7 @@ const PageLayout = () => {
       <div className="App-main" style={{ display: 'flex' }}>
         <SideDrawer />
         <main style={{ flexGrow: 1, padding: '16px' }}>
-          <MainRoutes /> 
+          <MainRoutes />
         </main>
       </div>
       <Footer />

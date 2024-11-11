@@ -25,15 +25,15 @@ export default function SideDrawer() {
         },
       }}
     >
-      <List sx={{ paddingTop: '16px' }}> 
+      <List sx={{ paddingTop: '16px' }}>
         {[
-          { text: 'Dashboard', path: '/dashboard' },
-          { text: 'Faculty', path: '/faculty' },
-          { text: 'Students', path: '/students' },
-          { text: 'Courses', path: '/courses' },
-          { text: 'Feedback', path: '/feedback' },
-          { text: 'Time Table', path: '/timetable' },
-          { text: 'Assignments', path: '/assignments' },
+          { text: 'Dashboard', path: '/app/dashboard' },
+          { text: 'Faculty', path: '/app/faculty' },
+          { text: 'Students', path: '/app/students' },
+          { text: 'Courses', path: '/app/courses' },
+          { text: 'Feedback', path: '/app/feedback' },
+          { text: 'Time Table', path: '/app/timetable' },
+          { text: 'Assignments', path: '/app/assignments' },
         ].map((item) => (
           <ListItem
             key={item.text}
@@ -43,14 +43,14 @@ export default function SideDrawer() {
               backgroundColor: '#393e46',
               color: 'white',
               margin: '4px 0',
-              borderRadius: '0', 
+              borderRadius: '0',
               width: '100%',
-              height: '50px', 
+              height: '50px',
               '&:hover': {
-                backgroundColor: '#393e46', 
+                backgroundColor: '#393e46',
               },
               '& + &': {
-                borderTop: '0px solid white', 
+                borderTop: '0px solid white',
               },
             }}
           >
