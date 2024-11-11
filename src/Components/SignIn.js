@@ -13,22 +13,22 @@ const SignIn = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:3001/api/auth/signin', {
+      const response = await fetch('http://localhost:3001/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
         credentials: 'include',
         body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
-      
+
       if (response.ok) {
         localStorage.setItem('token', data.token);
         localStorage.setItem('userEmail', email);
-        navigate('/dashboard'); 
+        navigate('/app'); // Redirect to PageLayout or Dashboard
       } else {
         setError(data.message || 'Login failed. Please check your credentials.');
       }

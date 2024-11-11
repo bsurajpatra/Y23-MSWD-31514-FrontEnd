@@ -11,7 +11,33 @@ const SignUp = () => {
     confirmPassword: '',
   });
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
+  const validateForm = () => {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.password || !formData.confirmPassword) {
+      setError('All fields are required');
+      return false;
+    }
+
+    if (formData.password.length < 8) {
+      setError('Password must be at least 8 characters long');
+      return false;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match');
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setError('Please enter a valid email address');
+      return false;
+    }
+
+    return true;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,16 +45,18 @@ const SignUp = () => {
       ...prevState,
       [name]: value
     }));
+    setError(''); 
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-
-    if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
+    
+    if (!validateForm()) {
       return;
     }
+
+    setIsLoading(true);
 
     try {
       const response = await fetch('http://localhost:3001/api/auth/signup', {
@@ -36,6 +64,7 @@ const SignUp = () => {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include', 
         body: JSON.stringify({
           firstName: formData.firstName,
           lastName: formData.lastName,
@@ -46,14 +75,16 @@ const SignUp = () => {
 
       const data = await response.json();
 
-      if (response.ok) {
-        navigate('/'); 
-      } else {
-        setError(data.message || 'Registration failed. Please try again.');
+      if (!response.ok) {
+        throw new Error(data.message || 'Registration failed');
       }
+
+      navigate('/signin', { state: { message: 'Registration successful! Please log in.' } });
     } catch (error) {
-      console.error('Error:', error);
-      setError('Unable to connect to the server. Please try again later.');
+      console.error('Registration error:', error);
+      setError(error.message || 'Unable to complete registration. Please try again later.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -171,8 +202,10 @@ const SignUp = () => {
             required
           />
         </div>
-        <button type="submit" style={buttonStyle}>Sign Up</button>
-        <Link to="/" style={linkStyle}>Already have an account? Sign In</Link>
+        <button type="submit" style={buttonStyle} disabled={isLoading}>
+          {isLoading ? 'Signing Up...' : 'Sign Up'}
+        </button>
+        <Link to="/signin" style={linkStyle}>Already have an account? Sign In</Link>
       </form>
     </section>
   );
