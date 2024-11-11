@@ -2,8 +2,8 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
-import Dashboard from './Dashboard';  // Assuming you have a dashboard component
-import PageLayout from './PageLayout';  // Assuming you have a PageLayout component
+import Dashboard from './Dashboard';  
+import PageLayout from './PageLayout';  
 
 function LoginRouting() {
   return (
